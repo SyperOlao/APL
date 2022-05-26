@@ -1,13 +1,75 @@
-.container{
-    position: absolute;
-    z-index: 10;
+.container {
     background-color: #fff;
-    min-width: 250px;
     height: 100%;
     top: 0;
     left: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
 }
-.title{
+
+.mainContainer {
+    width: 250px;
+}
+
+.mainContainerActive {
+    width: 100px;
+}
+
+.animationSlideIn {
+    animation-duration: 2s;
+    animation-name: slidein;
+
+}
+
+.animationSlideOut {
+    animation-duration: 2s;
+    animation-name: slideout;
+}
+
+.mainMenu {
+    width: 100%;
+}
+
+.exitMenu {
+    width: 100%;
+}
+
+
+@keyframes slideout {
+    from {
+        width: 100px;
+    }
+    to {
+        width: 250px;
+    }
+}
+
+
+@keyframes slidein {
+    from {
+        width: 250px;
+    }
+
+    to {
+        width: 100px;
+    }
+}
+
+
+.animationSlideInText {
+    animation-duration: 2s;
+
+}
+
+.animationSlideOutText {
+    animation-duration: 2s;
+    animation: slideInText;
+}
+
+
+.title {
     width: 100%;
     height: 100px;
     display: flex;
@@ -15,46 +77,71 @@
     justify-content: center;
 }
 
-.text{
+.text {
     font-size: 1.3rem;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.navLink{
+.navLink {
+}
+
+.navLinkUnselected {
+    flex-direction: column;
+
+}
+
+.containerNavLink {
     text-decoration: none;
     display: flex;
     align-items: center;
     justify-content: space-around;
-    padding: 10px;
-    width: 100%;
-}
-
-.navLinkUnselected{
-    color: pink;
-}
-
-.menuElem{
+    padding: 20px;
     width: 100%;
     height: 30px;
-    padding: 15px;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
 }
-.menuElemContainer{
+
+.containerNavLink:hover {
+    background-color: #23FF34;
+    transition-duration: 1s;
+}
+
+.menuElemContainer {
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 150px;
     flex-direction: column;
 }
-.menuElemText{
+
+.menuElemContainerActive {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.menuElemText {
     font-size: 1.2rem;
+    color: #8A8B9F
 }
-.exitToApp{
-    position: absolute;
-    bottom: 0;
+
+.exitToApp {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
 }
-.menuElemIcon{
+
+.menuElemIcon {
     width: 20px;
     height: 20px;
+    transform: scale(125%);
+    color: #1B1D4E
 }

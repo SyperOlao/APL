@@ -1,6 +1,11 @@
 import classes from "../MenuBar.module.css";
-export const MenuTitle = (): JSX.Element => {
+import {MouseEventHandler} from "react";
+
+export const MenuTitle = (props: {onClick: MouseEventHandler<HTMLDivElement>, title: string}): JSX.Element => {
+    const {onClick, title} = props;
     return (
-        <div className={classes.text}>APL</div>
+        <div onClick={onClick} className={classes.text}>
+            {title}
+        </div>
     );
 }

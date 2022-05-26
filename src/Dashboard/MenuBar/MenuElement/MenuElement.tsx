@@ -1,16 +1,16 @@
 import {IMenuElementData} from "../../Interfaces/Interfaces";
 import classes from "../MenuBar.module.css";
 import {NavLink} from "react-router-dom";
-export const MenuElement = (prop: { elementData: IMenuElementData }): JSX.Element => {
-    const {link, icon, text} = prop.elementData;
+
+export const MenuElement = (props: { elementData: IMenuElementData, menuState: boolean, textAnimation: string }): JSX.Element => {
+    const {link, icon, text} = props.elementData;
+    const menuState = props.menuState;
+    const textAnimation = props.textAnimation;
     return (
-        <li className={classes.menuElem}>
-            <NavLink to={link} className={isActive =>
-                classes.navLink + (!isActive ? classes.navLinkUnselected : "")}>
-                <div className={classes.menuElemIcon}>{icon}</div>
-                <div className={classes.menuElemText}>{text}</div>
-            </NavLink>
-        </li>
+        <NavLink to={link} className={`${classes.containerNavLink} ${menuState ? classes.navLink : classes.navLinkUnselected}`}>
+            <div className={classes.menuElemIcon}>{icon}</div>
+            {menuState && <div className={`${classes.menuElemText} ${textAnimation}`}>{text}</div>}
+        </NavLink>
     );
 }
 
