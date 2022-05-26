@@ -16,8 +16,22 @@
 }
 
 .text{
-
+    font-size: 1.3rem;
 }
+
+.navLink{
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 10px;
+    width: 100%;
+}
+
+.navLinkUnselected{
+    color: pink;
+}
+
 .menuElem{
     width: 100%;
     height: 30px;
@@ -33,9 +47,14 @@
     width: 150px;
     flex-direction: column;
 }
-.menuElemText{}
-
+.menuElemText{
+    font-size: 1.2rem;
+}
+.exitToApp{
+    position: absolute;
+    bottom: 0;
+}
 .menuElemIcon{
     width: 20px;
-
+    height: 20px;
 }

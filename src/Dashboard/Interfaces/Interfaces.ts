@@ -1,4 +1,5 @@
 export interface IMenuElementData{
-    icon: string,
+    link: string,
+    icon: any,
     text: string
 }
