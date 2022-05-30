@@ -9,7 +9,7 @@ export const MenuElement = (props: { elementData: IMenuElementData, menuState: b
     return (
         <NavLink to={link} className={`${classes.containerNavLink} ${menuState ? classes.navLink : classes.navLinkUnselected}`}>
             <div className={classes.menuElemIcon}>{icon}</div>
-            {menuState && <div className={`${classes.menuElemText} ${textAnimation}`}>{text}</div>}
+            <div className={`${menuState ? classes.menuElemText: classes.menuElemTextClose} ${textAnimation}`}>{text}</div>
         </NavLink>
     );
 }
