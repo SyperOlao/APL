@@ -3,8 +3,10 @@ import {IFilterData} from "../../Interfaces/Interfaces";
 
 export abstract class  AFilterComponent implements IFilterComponent{
     private readonly _filterData: IFilterData[];
-    public constructor(filterData: IFilterData[]) {
+    private _condition: boolean;
+    public constructor(filterData: IFilterData[], condition = true) {
         this._filterData = filterData;
+        this._condition = condition;
     }
 
     abstract getValue(): string;
@@ -14,5 +16,11 @@ export abstract class  AFilterComponent implements IFilterComponent{
     public get filterData(): IFilterData[] {
         return this._filterData;
     }
+    get condition(): boolean {
+        return this._condition;
+    }
 
+    set condition(value: boolean) {
+        this._condition = value;
+    }
 }

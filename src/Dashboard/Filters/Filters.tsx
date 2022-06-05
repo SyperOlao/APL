@@ -3,11 +3,16 @@ import {useState} from "react";
 import {DropDownList} from "./FiltersComponents/DropDownList/DropDownList";
 import {IFilterData} from "../Interfaces/Interfaces";
 
+const filterData: IFilterData[] = [
+    {label: 'a1', value: 'b1'},
+    {label: 'a2', value: 'b2'},
+    {label: 'a3', value: 'b3'},
+];
+
 export const Filters = (): JSX.Element => {
     const [showFilter, setShowFilter] = useState(true);
     const changeShowFilter = (): void => {
         setShowFilter(!showFilter);
-
     }
 
     return (
@@ -17,7 +22,7 @@ export const Filters = (): JSX.Element => {
             </div>
 
                 <div className={`${showFilter? "filterOpen": "filterClose "} filter__container` }>
-                    {new DropDownList([{label: 'a', value: 'b'}] as IFilterData[]).render()}
+                    {new DropDownList(filterData).render()}
                 </div>
 
         </div>
