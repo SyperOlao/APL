@@ -14,6 +14,9 @@ export const Filters = (): JSX.Element => {
     const changeShowFilter = (): void => {
         setShowFilter(!showFilter);
     }
+    const firstFilter = new DropDownList(filterData);
+    firstFilter.setCurrentValue('b2');
+
 
     return (
         <div>
@@ -22,7 +25,7 @@ export const Filters = (): JSX.Element => {
             </div>
 
                 <div className={`${showFilter? "filterOpen": "filterClose "} filter__container` }>
-                    {new DropDownList(filterData).render()}
+                    {firstFilter.render()}
                 </div>
 
         </div>
