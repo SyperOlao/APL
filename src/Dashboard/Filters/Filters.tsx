@@ -1,5 +1,5 @@
 import {Sort} from '@material-ui/icons';
-import {useState} from "react";
+import {ChangeEvent, useState} from "react";
 import {DropDownList} from "./FiltersComponents/DropDownList/DropDownList";
 import {IFilterData} from "../Interfaces/Interfaces";
 
@@ -11,12 +11,18 @@ const filterData: IFilterData[] = [
 
 export const Filters = (): JSX.Element => {
     const [showFilter, setShowFilter] = useState(true);
+    const [a, sA] = useState('b2');
+
     const changeShowFilter = (): void => {
         setShowFilter(!showFilter);
     }
-    const firstFilter = new DropDownList(filterData);
-    firstFilter.setCurrentValue('b2');
-
+    const firstFilter = new DropDownList(filterData, "first");
+    firstFilter.setCurrentValue(a);
+    firstFilter.setOnChange((event: ChangeEvent<HTMLSelectElement>)=> {
+        sA(event.target.value)
+        firstFilter.setCurrentValue(a);
+    })
+    console.log(firstFilter.getCurrentValue());
 
     return (
         <div>
