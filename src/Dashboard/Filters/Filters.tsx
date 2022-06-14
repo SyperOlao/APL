@@ -17,12 +17,9 @@ export const Filters = (): JSX.Element => {
         setShowFilter(!showFilter);
     }
     const firstFilter = new DropDownList(filterData, "first");
-    firstFilter.setCurrentValue(a);
-    firstFilter.setOnChange((event: ChangeEvent<HTMLSelectElement>)=> {
-        sA(event.target.value)
-        firstFilter.setCurrentValue(a);
-    })
-    console.log(firstFilter.getCurrentValue());
+    firstFilter.setCurrentValue(a)
+    firstFilter.setState(sA);
+    console.log(firstFilter.name, firstFilter.getCurrentValue());
 
     return (
         <div>
@@ -30,9 +27,9 @@ export const Filters = (): JSX.Element => {
                 {<Sort/>}
             </div>
 
-                <div className={`${showFilter? "filterOpen": "filterClose "} filter__container` }>
-                    {firstFilter.render()}
-                </div>
+            <div className={`${showFilter ? "filterOpen" : "filterClose "} filter__container`}>
+                {firstFilter.render()}
+            </div>
 
         </div>
     );

@@ -1,6 +1,6 @@
 import {IFilterData} from "../../../Interfaces/Interfaces";
 import {AFilterComponent} from "../AFilterComponent";
-import React, {ChangeEvent} from "react";
+import React, {ChangeEvent, Dispatch, SetStateAction} from "react";
 
 export class DropDownList extends AFilterComponent {
 
@@ -12,9 +12,15 @@ export class DropDownList extends AFilterComponent {
         this.onChange = func;
     }
 
+    public setState  = (set: Dispatch<SetStateAction<string>>)=>{
+        this.onChange = (event: ChangeEvent<HTMLSelectElement>) => {
+            set(event.target.value);
+        }
+    }
+
     public render(): JSX.Element {
         return <DropDownListComponent data={this.filterData} currentValue={this.getCurrentValue()}
-                                      onChange={this.onChange} condition={this.condition} title={this.title}/>
+                                      onChange={this.onChange.bind(this)} condition={this.condition} title={this.title}/>
     }
 
 }
