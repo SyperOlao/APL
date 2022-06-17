@@ -1,5 +1,5 @@
 import {Sort} from '@material-ui/icons';
-import {ChangeEvent, useState} from "react";
+import {ChangeEvent, useEffect, useState} from "react";
 import {DropDownList} from "./FiltersComponents/DropDownList/DropDownList";
 import {IFilterData} from "../Interfaces/Interfaces";
 
@@ -11,15 +11,17 @@ const filterData: IFilterData[] = [
 
 export const Filters = (): JSX.Element => {
     const [showFilter, setShowFilter] = useState(true);
-    const [a, sA] = useState('b2');
-
+    const [b, sb] = useState('a1');
     const changeShowFilter = (): void => {
         setShowFilter(!showFilter);
     }
+
     const firstFilter = new DropDownList(filterData, "first");
-    firstFilter.setCurrentValue(a)
-    firstFilter.setState(sA);
-    console.log(firstFilter.name, firstFilter.getCurrentValue());
+    firstFilter.setState(sb);
+    useEffect(()=>{
+        console.log(firstFilter.name, firstFilter.getCurrentValue());
+    }, [b])
+
 
     return (
         <div>
