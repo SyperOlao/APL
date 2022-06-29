@@ -5,6 +5,7 @@ import React, {ChangeEvent} from "react";
 export class DropDownList extends AFilterComponent {
 
     private onChange = (event: ChangeEvent<HTMLSelectElement>): void => {
+        this.reduxOnChange(event.target.value);
         this.setCurrentValue(event.target.value);
     }
 

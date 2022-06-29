@@ -1,5 +1,5 @@
 import "../styles/styles.css";
-import {Filters} from "../Filters/Filters";
+import Filters from "../Filters/Filters";
 
 export const Header = (props: { title: string }): JSX.Element => {
     const title = props.title;
