@@ -1,5 +1,5 @@
 export interface IFilterComponent {
     render(key: number): JSX.Element;
 
-    getCurrentValue(): string;
+    getCurrentValue(): string | number | undefined;
 }

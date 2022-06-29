@@ -5,12 +5,13 @@ import React, {ChangeEvent} from "react";
 export class DropDownList extends AFilterComponent {
 
     private onChange = (event: ChangeEvent<HTMLSelectElement>): void => {
-        this.reduxOnChange(event.target.value);
+        this._reduxOnChange(event.target.value);
         this.setCurrentValue(event.target.value);
     }
 
     public render(key=0): JSX.Element {
-        return <DropDownListComponent data={this.filterData} key={key} currentValue={this.getCurrentValue()}
+        return <DropDownListComponent data={this.filterData} key={key}
+                                      currentValue={this.getCurrentValue()}
                                       onChange={this.onChange.bind(this)} condition={this.condition}
                                       title={this.title}/>
     }
@@ -19,7 +20,7 @@ export class DropDownList extends AFilterComponent {
 
 const DropDownListComponent = (props: {
     data: IFilterData[],
-    currentValue: string,
+    currentValue:  string | number | undefined,
     title: string,
     condition: boolean,
     onChange: (event: ChangeEvent<HTMLSelectElement>) => void

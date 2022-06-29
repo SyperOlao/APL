@@ -1,34 +1,31 @@
 import {IFilterComponent} from "./IFilterComponent";
 import {IFilterData} from "../../Interfaces/Interfaces";
-import {ChangeEvent} from "react";
 
 export abstract class AFilterComponent implements IFilterComponent {
 
     private readonly _filterData: IFilterData[];
     private _condition: boolean;
-    private _currentValue: string;
+    private _currentValue: string | number | undefined;
     private _title: string;
-    private _name: string;
-    private _reduxOnChange: (event: string)=> void;
+    protected _reduxOnChange: any;
 
-    public constructor(filterData: IFilterData[], name: string, condition = true, title="") {
+    public constructor(filterData: IFilterData[], currentValue: string | number | undefined, reduxOnChange: any, condition = true, title = "") {
         this._filterData = filterData;
         this._condition = condition;
-        this._name = name;
-        this._currentValue = this.filterData[0].value.toString();
+        this._currentValue = currentValue;
         this._title = title;
-        this._reduxOnChange = (event:string)=>{}
+        this._reduxOnChange = reduxOnChange;
     }
 
 
-
-    public getCurrentValue(): string {
+    public getCurrentValue(): string | number | undefined {
         return this._currentValue;
     }
 
     get reduxOnChange(): (event: string) => void {
         return this._reduxOnChange;
     }
+
     set reduxOnChange(value: (event: string) => void) {
         this._reduxOnChange = value;
     }
@@ -64,11 +61,4 @@ export abstract class AFilterComponent implements IFilterComponent {
         this._title = value;
     }
 
-    get name(): string {
-        return this._name;
-    }
-
-    set name(value: string) {
-        this._name = value;
-    }
 }
