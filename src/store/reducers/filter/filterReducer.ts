@@ -1,8 +1,8 @@
-import {StateInput} from "../Types";
+import {State, StateInput} from "../Types";
 import {AnyAction} from "redux";
 
-const initialState = {
-
+const initialState: State = {
+    first1: 'b3',
 }
 
 

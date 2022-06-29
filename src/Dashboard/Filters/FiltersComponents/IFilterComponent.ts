@@ -1,4 +1,5 @@
-export interface IFilterComponent{
-    render(): JSX.Element;
+export interface IFilterComponent {
+    render(key: number): JSX.Element;
+
     getCurrentValue(): string;
 }

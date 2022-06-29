@@ -1,6 +1,7 @@
-import { AnyAction } from "redux";
+import {AnyAction} from "redux";
+
 export type State = {
-    reducerA: number;
+    [state: string]: number | string | undefined;
 };
 export type StateInput = Partial<State>;
 

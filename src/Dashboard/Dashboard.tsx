@@ -5,6 +5,7 @@ import {MenuBar} from "./MenuBar/MenuBar";
 
 
 export const Dashboard = (): JSX.Element => {
+
     return (
         <div className="container">
             <div className="wrapper">

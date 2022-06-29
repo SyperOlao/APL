@@ -8,6 +8,7 @@ export abstract class AFilterComponent implements IFilterComponent {
     private _title: string;
     private _name: string;
 
+
     public constructor(filterData: IFilterData[], name: string, condition = true, title="") {
         this._filterData = filterData;
         this._condition = condition;
@@ -15,11 +16,14 @@ export abstract class AFilterComponent implements IFilterComponent {
         this._currentValue = this.filterData[0].value.toString();
         this._title = title;
 
+
     }
 
     public getCurrentValue(): string {
         return this._currentValue;
     }
+
+
 
     public setCurrentValue(value: string) {
         const newFilter = this._filterData.findIndex(filter => filter.value === value);
@@ -30,7 +34,7 @@ export abstract class AFilterComponent implements IFilterComponent {
         }
     }
 
-    abstract render(): JSX.Element;
+    abstract render(key: number): JSX.Element;
 
     public get filterData(): IFilterData[] {
         return this._filterData;
