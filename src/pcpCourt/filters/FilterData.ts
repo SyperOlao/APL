@@ -1,4 +1,4 @@
-import {IFilterData} from "../Interfaces/Interfaces";
+import {IFilterData} from "../../Dashboard/Interfaces/Interfaces";
 
 interface IFiltersData {
     filterData: IFilterData[],

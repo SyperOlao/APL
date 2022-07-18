@@ -1,26 +1,19 @@
 import {Sort} from '@material-ui/icons';
 import {useState} from "react";
-import {DropDownList} from "./FiltersComponents/DropDownList/DropDownList";
 import {AFilterComponent} from "./FiltersComponents/AFilterComponent";
 import {connect} from "react-redux";
-import {filter} from "../../store/reducers/filter/filterReducer";
-import {filtersData} from "./FilterData";
-import {store} from "../../store/store";
+import {firstFilter, firstFilter2} from "../../pcpCourt/filters/initFilters";
 
-
-const firstFilter = new DropDownList(filtersData.filterData,
-    filter.getInitialState().first1,
-    (e: any) => store.dispatch(filter.actions.dropDownFirst1(e)))
 
 
 const Filters = (): JSX.Element => {
     const [showFilter, setShowFilter] = useState(true);
-    const filters: AFilterComponent[] = [firstFilter];
+    const filters: AFilterComponent[] = [firstFilter, firstFilter2];
     const changeShowFilter = (): void => {
         setShowFilter(!showFilter);
     }
-    // filters[0].reduxOnChange = props.drop1;
-    console.log(filters[0].getCurrentValue())
+
+    console.log(filters[1].getCurrentValue())
 
     return (
         <div>
@@ -42,8 +35,5 @@ const mapStateToProps = (state: any) => {
         first2: state.filter.first2,
     }
 }
-const mapDispatchToProps = {
-    drop1: filter.actions.dropDownFirst1,
-    drop2: filter.actions.dropDownFirst2,
-}
-export default connect(mapStateToProps, mapDispatchToProps)(Filters);
+
+export default connect(mapStateToProps)(Filters);
